@@ -1,9 +1,12 @@
 export const initialState = {
   currency: {
-    data: {},
+    data: 0,
     loading: {
       active: false,
       error: false,
     },
+  },
+  transactions: {
+    data: [],
   },
 };

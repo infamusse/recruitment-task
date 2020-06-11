@@ -1,0 +1,24 @@
+@import "../../../styles/settings.scss";
+
+.inputValue {
+  caret-color: $secondary;
+  transition: 0.3s;
+  width: 100px;
+  margin-right: 100px;
+
+  input {
+    font-family: $paragraph-font;
+  }
+}
+
+.transactionContainer {
+  display: flex;
+  align-items: center;
+  max-width: 350px;
+}
+
+.returnValue {
+  font-size: 55px;
+  line-height: 40px;
+  margin: auto 0;
+}

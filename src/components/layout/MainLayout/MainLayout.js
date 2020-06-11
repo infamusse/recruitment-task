@@ -10,7 +10,7 @@ import { Container } from "@material-ui/core";
 
 import styles from "./MainLayout.module.scss";
 
-import CurrencyConventer from "../../features/CurrencyConventer/CurrencyConventer";
+import { CurrencyConventer } from "../../features/CurrencyConventer/CurrencyConventer";
 
 const MainLayout = ({ fetchEuro }) => {
   useEffect(() => {

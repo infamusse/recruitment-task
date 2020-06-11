@@ -1,10 +1,11 @@
 import axios from "axios";
 
 /* selectors */
-export const getAll = ({ posts }) => posts.data;
+export const getEuroCourse = ({ currency }) => currency.data;
+export const getLoadingState = ({ currency }) => currency.loading;
 
 /* action name creator */
-const reducerName = "posts";
+const reducerName = "currency";
 const createActionName = (name) => `app/${reducerName}/${name}`;
 
 /* action types */
@@ -25,9 +26,9 @@ export const fetchEuro = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/EUR`)
       .then((response) => {
-        const data = response.data;
-        console.log("data", response);
-        dispatch(fetchSuccess(data));
+        const { rates } = response.data;
+        console.log("data", rates);
+        dispatch(fetchSuccess(rates[0].mid));
       })
       .catch((error) => fetchError(error.message));
   };

@@ -1,27 +1,35 @@
 import React from "react";
 
-import TextField from "@material-ui/core/TextField";
+import { InputTransaction } from "../InputTransaction/InputTransaction";
+import CurrencyCurse from "../CurrencyCurse/CurrencyCurse";
+
+import { getEuroCourse, getLoadingState } from "../../../redux/currencyRedux";
+
+import { connect } from "react-redux";
 
 import styles from "./CurrencyConventer.module.scss";
 
-const CurrencyConventer = ({ theme }) => {
-  return (
-    <div className={styles.fromTo}>
-      <h3>from: PLN</h3>
-      <h3>to: EUR</h3>
-      <TextField
-        // InputProps={{
-        //   classes: {
-        //     root: theme.palette.secondary.main,
-        //     focused: theme.palette.secondary.main,
-        //   },
-        // }}
-        label="Outlined"
-        borderColor="secondary"
-        variant="outlined"
-      />
-    </div>
-  );
+const CurrencyConventer = ({ euroCourse, loading }) => {
+  if (loading.active) return <p>Loading...</p>;
+  else
+    return (
+      <div className={styles.fromTo}>
+        <h3>from: PLN</h3>
+        <h3>to: EUR</h3>
+        <CurrencyCurse course={euroCourse} />
+        <InputTransaction course={euroCourse} />
+      </div>
+    );
 };
 
-export default CurrencyConventer;
+const mapStateToProps = (state) => ({
+  euroCourse: getEuroCourse(state),
+  loading: getLoadingState(state),
+});
+
+const CurrencyConventerContainer = connect(
+  mapStateToProps,
+  null
+)(CurrencyConventer);
+
+export { CurrencyConventerContainer as CurrencyConventer };

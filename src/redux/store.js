@@ -4,10 +4,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import { initialState } from "./initialState";
 import { reducer as currencyReducer } from "./currencyRedux";
+import { reducer as transactionsReducer } from "./transactionsRedux";
 
 // define reducers
 const reducers = {
   currency: currencyReducer,
+  transactions: transactionsReducer,
 };
 
 // add blank reducers for initial state properties without reducers

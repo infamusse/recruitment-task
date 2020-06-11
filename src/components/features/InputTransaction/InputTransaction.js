@@ -7,7 +7,6 @@ import { TextField, Grid } from "@material-ui/core";
 import styles from "./InputTransaction.module.scss";
 
 import { addTransaction } from "../../../redux/transactionsRedux";
-
 import { connect } from "react-redux";
 
 const InputTransaction = ({ course, addTransaction }) => {

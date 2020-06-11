@@ -4,7 +4,6 @@ import { InputTransaction } from "../InputTransaction/InputTransaction";
 import CurrencyCurse from "../CurrencyCurse/CurrencyCurse";
 
 import { getEuroCourse, getLoadingState } from "../../../redux/currencyRedux";
-
 import { connect } from "react-redux";
 
 import styles from "./CurrencyConventer.module.scss";

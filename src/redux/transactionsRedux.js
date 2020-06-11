@@ -36,6 +36,11 @@ export const reducer = (statePart = [], action = {}) => {
         ],
       };
     }
+    case REMOVE_TANSACTION: {
+      return {
+        data: statePart.data.filter(({ id }) => id !== action.payload),
+      };
+    }
     default:
       return statePart;
   }

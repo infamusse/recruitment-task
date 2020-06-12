@@ -31,7 +31,7 @@ export const reducer = (statePart = [], action = {}) => {
           {
             id: uuidv4(),
             name: action.payload.name,
-            orginalCourse: action.payload.course,
+            EUR: action.payload.eur,
           },
         ],
       };

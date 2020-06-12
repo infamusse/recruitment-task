@@ -1,14 +1,35 @@
 import React from "react";
 
+import { changeCurrencyValue } from "../../../redux/currencyRedux";
+import { connect } from "react-redux";
+
+import Input from "@material-ui/core/Input";
+
 import styles from "./CurrencyCurse.module.scss";
 
-const CurrencyCurse = ({ course }) => {
-  console.log(course, typeof course);
+const CurrencyCurse = ({ course, changeCurrencyValue }) => {
   return (
     <div className={styles.container}>
-      <p>Today course is {course}</p>
+      <span className={styles.courseInfoText}>Use today course from NBP:</span>
+      <Input
+        className={styles.courseInfoInput}
+        color="secondary"
+        type="number"
+        inputProps={{
+          min: "0",
+        }}
+        onChange={(e) => changeCurrencyValue(e.target.value)}
+        value={course}
+      />
+      <span className={styles.courseInfoText}>or insert Own</span>
     </div>
   );
 };
 
-export default CurrencyCurse;
+const mapDispatchToProps = {
+  changeCurrencyValue: (course) => changeCurrencyValue(course),
+};
+
+const CurrencyCurseContainer = connect(null, mapDispatchToProps)(CurrencyCurse);
+
+export { CurrencyCurseContainer as CurrencyCurse };

@@ -7,12 +7,8 @@ import clsx from "clsx";
 
 import styles from "./SaveTransaction.module.scss";
 
-const SaveTransaction = ({ saveTrasaction }) => {
-  const [transaction, setTransaction] = useState("");
-
-  const handleTransaction = () => {
-    saveTrasaction(transaction);
-  };
+const SaveTransaction = ({ emitTrasaction, saveTransaction }) => {
+  const [name, setName] = useState("");
 
   return (
     <div>
@@ -21,9 +17,21 @@ const SaveTransaction = ({ saveTrasaction }) => {
         color="secondary"
         placeholder="Name of transaction"
         variant="outlined"
-        onChange={(e) => setTransaction(e.target.value)}
+        value={name}
+        title="Enter the transaction name"
+        onChange={(e) => {
+          emitTrasaction(e.target.value);
+          setName(e.target.value);
+        }}
       />
-      <IconButton onClick={handleTransaction} color="secondary">
+      <IconButton
+        onClick={() => {
+          saveTransaction();
+          setName("");
+        }}
+        disabled={!name}
+        color="secondary"
+      >
         <SaveIcon />
       </IconButton>
     </div>

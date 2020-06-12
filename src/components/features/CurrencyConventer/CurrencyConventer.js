@@ -1,7 +1,7 @@
 import React from "react";
 
 import { InputTransaction } from "../InputTransaction/InputTransaction";
-import CurrencyCurse from "../CurrencyCurse/CurrencyCurse";
+import { CurrencyCurse } from "../CurrencyCurse/CurrencyCurse";
 
 import { getEuroCourse, getLoadingState } from "../../../redux/currencyRedux";
 import { connect } from "react-redux";
@@ -13,8 +13,8 @@ const CurrencyConventer = ({ euroCourse, loading }) => {
   else
     return (
       <div className={styles.fromTo}>
-        <h3>from: PLN</h3>
-        <h3>to: EUR</h3>
+        <h3>from: EUR</h3>
+        <h3>to: PLN</h3>
         <CurrencyCurse course={euroCourse} />
         <InputTransaction course={euroCourse} />
       </div>

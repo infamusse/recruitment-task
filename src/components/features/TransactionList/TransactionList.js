@@ -6,9 +6,12 @@ import { getEuroCourse } from "../../../redux/currencyRedux";
 import { removeTransaction } from "../../../redux/transactionsRedux";
 import { connect } from "react-redux";
 
+import styles from "./TransactionList.module.scss";
+
 const TransactionList = ({ transactions, euroCourse, removeTransaction }) => {
   return (
-    <ul>
+    <div className={styles.transactionListContainer}>
+      <h2 className={styles.transactionListTitle}>Transaction list:</h2>
       {transactions.length ? (
         transactions.map((transaction) => (
           <TransactionElement
@@ -19,9 +22,9 @@ const TransactionList = ({ transactions, euroCourse, removeTransaction }) => {
           />
         ))
       ) : (
-        <p>Add transaction</p>
+        <p>No save transaction yet</p>
       )}
-    </ul>
+    </div>
   );
 };
 

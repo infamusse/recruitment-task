@@ -1,0 +1,48 @@
+@import "../../../styles/settings.scss";
+
+.transactionElement {
+  width: 80%;
+  padding: 5px 5px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .transactionName {
+    display: inline-block;
+    margin: auto 5px;
+    font-size: 18px;
+  }
+
+  .transactionSumContainer {
+    display: inline-block;
+    width: 150px;
+    .transactionSum {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .transactionArrow {
+    margin: 0 10px;
+  }
+
+  .transactionDeleteButton {
+    visibility: hidden;
+    transition: 0.4s;
+  }
+}
+.transactionElement:hover {
+  .transactionDeleteButton {
+    visibility: visible;
+    margin: 0 5px;
+    transition: 0.4s;
+  }
+
+  .transactionDeleteButton:hover {
+    svg {
+      fill: $warning;
+    }
+  }
+}

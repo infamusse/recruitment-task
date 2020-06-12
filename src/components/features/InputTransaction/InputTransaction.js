@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 
 import { SaveTransaction } from "../SaveTransaction/SaveTransaction";
-
-import { TextField, Grid } from "@material-ui/core";
-
-import styles from "./InputTransaction.module.scss";
+import { returnValueInPLN } from "../../../utils/returnValueInEUR";
+import { roundSum } from "../../../utils/sumTransaction";
 
 import { addTransaction } from "../../../redux/transactionsRedux";
 import { connect } from "react-redux";
 
-const InputTransaction = ({ course, addTransaction }) => {
-  const [value, setValue] = useState(0);
+import { TextField, Grid } from "@material-ui/core";
+import styles from "./InputTransaction.module.scss";
 
-  const returnValueInEuro = () => {
-    let euroValue = value * course;
-    return Math.round((euroValue + Number.EPSILON) * 100) / 100;
+const InputTransaction = ({ course, addTransaction }) => {
+  const [transaction, setTransaction] = useState({ name: "", eur: 0 });
+
+  const handleTransaction = (name) => {
+    setTransaction({ ...transaction, name: name });
   };
 
-  const saveTrasaction = (name) => {
-    addTransaction({ name: name, course: value });
+  const saveTransaction = () => {
+    const numberValue = parseFloat(transaction.eur);
+
+    addTransaction({
+      name: transaction.name,
+      eur: roundSum(numberValue),
+    });
+    setTransaction({ name: "", eur: 0 });
   };
 
   return (
@@ -29,17 +35,24 @@ const InputTransaction = ({ course, addTransaction }) => {
           color="secondary"
           variant="outlined"
           type="number"
-          value={value}
+          value={transaction.eur}
           inputProps={{
             min: "0",
           }}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) =>
+            setTransaction({ ...transaction, eur: e.target.value })
+          }
         />
       </Grid>
       <Grid className={styles.transactionContainer} item xs={8}>
-        <SaveTransaction saveTrasaction={saveTrasaction} />
+        <SaveTransaction
+          saveTransaction={saveTransaction}
+          emitTrasaction={handleTransaction}
+        />
       </Grid>
-      <h3 className={styles.returnValue}>{returnValueInEuro()}EUR</h3>
+      <h3 className={styles.returnValue}>
+        {returnValueInPLN(transaction.eur, course)}PLN
+      </h3>
     </Grid>
   );
 };

@@ -12,23 +12,28 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 const FETCH_START = createActionName("FETCH_START");
 const FETCH_SUCCESS = createActionName("FETCH_SUCCESS");
 const FETCH_ERROR = createActionName("FETCH_ERROR");
+const CHANGE_CURRENCY_VALUE = createActionName("CHANGE_CURRENCY_VALUE");
 
 /* action creators */
 export const fetchStarted = (payload) => ({ payload, type: FETCH_START });
 export const fetchSuccess = (payload) => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = (payload) => ({ payload, type: FETCH_ERROR });
+export const changeCurrencyValue = (payload) => ({
+  payload,
+  type: CHANGE_CURRENCY_VALUE,
+});
 
 /* thunk creators */
 export const fetchEuro = () => {
-  console.log("fetchEuro");
   return (dispatch) => {
     dispatch(fetchStarted());
     axios
-      .get(`${process.env.REACT_APP_API_URL}/EUR`)
+      .get(`http://api.nbp.pl/api/exchangerates/rates/A/EUR`)
       .then((response) => {
         const { rates } = response.data;
-        console.log("data", rates);
-        dispatch(fetchSuccess(rates[0].mid));
+        console.log("fetchEuro res", rates);
+        if (rates) dispatch(fetchSuccess(rates[0].mid));
+        else dispatch(fetchSuccess(4.45));
       })
       .catch((error) => fetchError(error.message));
   };
@@ -63,6 +68,16 @@ export const reducer = (statePart = [], action = {}) => {
           active: false,
           error: action.payload,
         },
+      };
+    }
+    case CHANGE_CURRENCY_VALUE: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: false,
+        },
+        data: action.payload,
       };
     }
     default:

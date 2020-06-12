@@ -46,3 +46,25 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .transactionElement {
+    width: 100%;
+    .transactionName {
+      font-size: 16px;
+    }
+    .transactionDeleteButton {
+      visibility: visible;
+    }
+
+    .transactionSumContainer {
+      width: 130px;
+      .transactionSum {
+        font-size: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+    }
+  }
+}

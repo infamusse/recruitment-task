@@ -25,6 +25,8 @@ const SaveTransaction = ({ emitTrasaction, saveTransaction }) => {
         }}
       />
       <IconButton
+        className={styles.saveTransactionButton}
+        small
         onClick={() => {
           saveTransaction();
           setName("");

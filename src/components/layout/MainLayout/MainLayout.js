@@ -33,7 +33,7 @@ const MainLayout = ({ fetchEuro, transactions, course }) => {
         <Grid item md={8} sm={12}>
           <TransactionList transactions={transactions} />
         </Grid>
-        <Grid item md={4} sm={12}>
+        <Grid className={styles.rightColContainer} item md={4} sm={12}>
           <TransactionSum course={course} transactions={transactions} />
           {biggestTransaction && (
             <BiggestTransaction

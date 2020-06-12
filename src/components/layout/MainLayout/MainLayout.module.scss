@@ -1,5 +1,9 @@
 @import "../../../styles/settings.scss";
 
+.container {
+  margin-bottom: 50px;
+}
+
 .siteTitle {
   text-align: center;
   font-weight: normal;
@@ -23,7 +27,13 @@
 
 @media (max-width: 600px) {
   .container {
-    margin-bottom: 50px;
+    .siteTitle {
+      margin-top: 10px;
+    }
+
+    .rightColContainer {
+      width: 100%;
+    }
   }
 
   .logoStars,
@@ -32,6 +42,7 @@
   }
 
   .logoStars {
+    top: -25%;
     left: -25%;
   }
 

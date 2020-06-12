@@ -29,7 +29,7 @@ const InputTransaction = ({ course, addTransaction }) => {
 
   return (
     <Grid container>
-      <Grid item xs={4}>
+      <Grid item xs={3}>
         <TextField
           className={styles.inputValue}
           color="secondary"
@@ -44,7 +44,7 @@ const InputTransaction = ({ course, addTransaction }) => {
           }
         />
       </Grid>
-      <Grid className={styles.transactionContainer} item xs={8}>
+      <Grid className={styles.transactionContainer} item xs={9}>
         <SaveTransaction
           saveTransaction={saveTransaction}
           emitTrasaction={handleTransaction}

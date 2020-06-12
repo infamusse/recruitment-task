@@ -2,3 +2,14 @@
   width: 250px;
   margin-right: 10px;
 }
+
+@media (max-width: 600px) {
+  .inputTransactionName {
+    width: 75%;
+    margin-left: 5px;
+    margin-right: 0;
+    .saveTransactionButton {
+      padding-left: 0 !important;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { SaveTransaction } from "../SaveTransaction/SaveTransaction";
-import { returnValueInPLN } from "../../../utils/returnValueInEUR";
+import { returnValueInPLN } from "../../../utils/returnValueInPLN";
 import { roundSum } from "../../../utils/sumTransaction";
 
 import { addTransaction } from "../../../redux/transactionsRedux";

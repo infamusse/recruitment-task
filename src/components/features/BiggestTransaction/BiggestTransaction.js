@@ -1,6 +1,6 @@
 import React from "react";
 
-import { returnValueInPLN } from "../../../utils/returnValueInEUR";
+import { returnValueInPLN } from "../../../utils/returnValueInPLN";
 
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import styles from "./BiggestTransaction.module.scss";

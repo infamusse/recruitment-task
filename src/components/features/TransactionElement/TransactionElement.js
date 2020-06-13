@@ -1,6 +1,6 @@
 import React from "react";
 
-import { returnValueInPLN } from "../../../utils/returnValueInEUR";
+import { returnValueInPLN } from "../../../utils/returnValueInPLN";
 
 import styles from "./TransactionElement.module.scss";
 

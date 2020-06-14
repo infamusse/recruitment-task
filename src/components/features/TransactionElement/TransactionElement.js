@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { returnValueInPLN } from "../../../utils/returnValueInPLN";
 
@@ -35,6 +36,12 @@ const TransactionElement = ({ transaction, euroCourse, removeTransaction }) => {
       </IconButton>
     </div>
   );
+};
+
+TransactionElement.propTypes = {
+  removeTransaction: PropTypes.func,
+  transaction: PropTypes.object,
+  euroCourse: PropTypes.number,
 };
 
 export default TransactionElement;

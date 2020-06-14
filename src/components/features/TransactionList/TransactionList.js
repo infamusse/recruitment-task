@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import TransactionElement from "../TransactionElement/TransactionElement";
 
@@ -19,6 +20,7 @@ const TransactionList = ({ transactions, euroCourse, removeTransaction }) => {
             transaction={transaction}
             euroCourse={euroCourse}
             removeTransaction={removeTransaction}
+            data-testid="SomeName"
           />
         ))
       ) : (
@@ -26,6 +28,12 @@ const TransactionList = ({ transactions, euroCourse, removeTransaction }) => {
       )}
     </div>
   );
+};
+
+TransactionList.propTypes = {
+  removeTransaction: PropTypes.func,
+  transactions: PropTypes.array,
+  euroCourse: PropTypes.number,
 };
 
 const mapStateToProps = (state) => ({
@@ -41,4 +49,7 @@ const TransactionListContainer = connect(
   mapDispatchToProps
 )(TransactionList);
 
-export { TransactionListContainer as TransactionList };
+export {
+  TransactionListContainer as TransactionList,
+  TransactionList as TransactionListComponent,
+};

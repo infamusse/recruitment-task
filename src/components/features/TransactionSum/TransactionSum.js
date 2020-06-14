@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   sumTransactionInPLN,
@@ -19,6 +20,11 @@ const TransactionSum = ({ transactions, course }) => {
       </div>
     </div>
   );
+};
+
+TransactionSum.propTypes = {
+  transactions: PropTypes.array,
+  course: PropTypes.number,
 };
 
 export { TransactionSum };

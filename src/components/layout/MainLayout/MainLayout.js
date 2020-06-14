@@ -25,6 +25,7 @@ const MainLayout = ({ fetchEuro, transactions, course }) => {
     <Container className={styles.container}>
       <img
         className={styles.logoStars}
+        alt="Europe Union Stars"
         src={process.env.PUBLIC_URL + "/img/EuroStars.svg"}
       />
       <h1 className={styles.siteTitle}>currency converter</h1>
@@ -38,13 +39,14 @@ const MainLayout = ({ fetchEuro, transactions, course }) => {
           {biggestTransaction && (
             <BiggestTransaction
               course={course}
-              transactions={biggestTransaction}
+              transaction={biggestTransaction}
             />
           )}
         </Grid>
       </Grid>
       <img
         className={styles.logoEuroLogo}
+        alt="Euro Logo"
         src={process.env.PUBLIC_URL + "/img/EuroLogo.svg"}
       />
     </Container>
@@ -53,6 +55,8 @@ const MainLayout = ({ fetchEuro, transactions, course }) => {
 
 MainLayout.propTypes = {
   fetchEuro: PropTypes.func,
+  transaction: PropTypes.array,
+  course: PropTypes.number,
 };
 
 const mapStateToProps = (state) => ({

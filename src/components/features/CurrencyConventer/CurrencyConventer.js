@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { InputTransaction } from "../InputTransaction/InputTransaction";
 import { CurrencyCurse } from "../CurrencyCurse/CurrencyCurse";
@@ -19,6 +20,11 @@ const CurrencyConventer = ({ euroCourse, loading }) => {
         <InputTransaction course={euroCourse} />
       </div>
     );
+};
+
+CurrencyConventer.propTypes = {
+  euroCourse: PropTypes.number,
+  loading: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import { IconButton, TextField } from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
@@ -27,6 +28,7 @@ const SaveTransaction = ({ emitTrasaction, saveTransaction }) => {
       <IconButton
         className={styles.saveTransactionButton}
         small
+        title="Save transaction"
         onClick={() => {
           saveTransaction();
           setName("");
@@ -38,6 +40,11 @@ const SaveTransaction = ({ emitTrasaction, saveTransaction }) => {
       </IconButton>
     </div>
   );
+};
+
+SaveTransaction.propTypes = {
+  emitTrasaction: PropTypes.func,
+  saveTransaction: PropTypes.func,
 };
 
 export { SaveTransaction };

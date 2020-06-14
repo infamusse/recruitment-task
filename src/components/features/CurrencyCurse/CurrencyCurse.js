@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { changeCurrencyValue } from "../../../redux/currencyRedux";
 import { connect } from "react-redux";
@@ -15,6 +16,7 @@ const CurrencyCurse = ({ course, changeCurrencyValue }) => {
         className={styles.courseInfoInput}
         color="secondary"
         type="number"
+        title="Change course"
         inputProps={{
           min: "0",
         }}
@@ -24,6 +26,11 @@ const CurrencyCurse = ({ course, changeCurrencyValue }) => {
       <span className={styles.courseInfoText}>or insert Own</span>
     </div>
   );
+};
+
+CurrencyCurse.propTypes = {
+  course: PropTypes.number,
+  changeCurrencyValue: PropTypes.func,
 };
 
 const mapDispatchToProps = {

@@ -1,12 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { returnValueInPLN } from "../../../utils/returnValueInPLN";
 
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import styles from "./BiggestTransaction.module.scss";
 
-const BiggestTransaction = ({ transactions, course }) => {
-  const { name, EUR } = transactions;
+const BiggestTransaction = ({ transaction, course }) => {
+  const { name, EUR } = transaction;
 
   return (
     <div className={styles.sumTransactionContainer}>
@@ -19,6 +20,11 @@ const BiggestTransaction = ({ transactions, course }) => {
       </div>
     </div>
   );
+};
+
+BiggestTransaction.propTypes = {
+  transaction: PropTypes.object,
+  course: PropTypes.number,
 };
 
 export { BiggestTransaction };

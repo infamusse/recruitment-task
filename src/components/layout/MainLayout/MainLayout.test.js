@@ -4,6 +4,7 @@ import { MainLayoutComponent } from "./MainLayout";
 
 describe("Component MainLayout", () => {
   it("should render without crashing", () => {
-    expect(true).toBeTruthy();
+    const component = shallow(<MainLayoutComponent />);
+    expect(component).toBeTruthy();
   });
 });

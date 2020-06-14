@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import { SaveTransaction } from "../SaveTransaction/SaveTransaction";
 import { returnValueInPLN } from "../../../utils/returnValueInPLN";
@@ -35,6 +36,7 @@ const InputTransaction = ({ course, addTransaction }) => {
           color="secondary"
           variant="outlined"
           type="number"
+          title="Input euro value to exchange"
           value={transaction.eur}
           inputProps={{
             min: "0",
@@ -55,6 +57,11 @@ const InputTransaction = ({ course, addTransaction }) => {
       </h3>
     </Grid>
   );
+};
+
+InputTransaction.propTypes = {
+  course: PropTypes.number,
+  addTransaction: PropTypes.func,
 };
 
 const mapDispatchToProps = {

@@ -27,7 +27,6 @@ const SaveTransaction = ({ emitTrasaction, saveTransaction }) => {
       />
       <IconButton
         className={styles.saveTransactionButton}
-        small
         title="Save transaction"
         onClick={() => {
           saveTransaction();

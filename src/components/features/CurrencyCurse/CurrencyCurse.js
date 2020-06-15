@@ -5,7 +5,6 @@ import { changeCurrencyValue } from "../../../redux/currencyRedux";
 import { connect } from "react-redux";
 
 import Input from "@material-ui/core/Input";
-
 import styles from "./CurrencyCurse.module.scss";
 
 const CurrencyCurse = ({ course, changeCurrencyValue }) => {

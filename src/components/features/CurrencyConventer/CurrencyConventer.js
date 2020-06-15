@@ -7,10 +7,11 @@ import { CurrencyCurse } from "../CurrencyCurse/CurrencyCurse";
 import { getEuroCourse, getLoadingState } from "../../../redux/currencyRedux";
 import { connect } from "react-redux";
 
+import LinearProgress from "@material-ui/core/LinearProgress";
 import styles from "./CurrencyConventer.module.scss";
 
 const CurrencyConventer = ({ euroCourse, loading }) => {
-  if (loading.active) return <p>Loading...</p>;
+  if (loading.active) return <LinearProgress color="secondary" />;
   else
     return (
       <div className={styles.fromTo}>
